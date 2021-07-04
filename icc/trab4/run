@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "" >Resultados/saida.csv
+for i in 64 100 128 2000 2048; do
+	echo "tamanho ${i} "
+	./perfctr 7 L3 ./matmult -n ${i} > saidaL3.csv
+	./perfctr 7 L2CACHE ./matmult -n ${i} > saidaL2.csv
+	./perfctr 7 FLOPS_DP ./matmult -n ${i} > saidaFLOP.csv
+
+	echo "tamanho $i" > temp.txt 
+	echo "multMatPtrVet" >>temp.txt
+	echo "multMatRowVet" >>temp.txt
+	echo "multMatMatPtr" >>temp.txt
+	echo "multMatMatRow" >>temp.txt
+
+	echo "Tempo de execusao (s)" > temp2.txt
+	cat saidaL2.csv | grep -e "Runtime unhalted" | cut -d, -f2 >>temp2.txt
+
+	echo "L2 miss ratio (%)" > temp3.txt
+	cat saidaL2.csv | grep -e "miss ratio" | cut -d, -f2 >>temp3.txt
+
+	echo "Memory bandwith (MBytes/s)" > temp4.txt
+	cat saidaL3.csv | grep -e "L3 bandwidth " | cut -d, -f2 >>temp4.txt
+
+	echo "DP(MFLOP/s),AVX(MFLOP/s)," > temp5.txt
+	cat saidaFLOP.csv | grep -e "DP " | cut -d, -f2 |sed '$!N;s/\n/,/'>>temp5.txt
+
+	paste -d "," temp.txt temp2.txt temp3.txt temp4.txt temp5.txt >> Resultados/saida.csv
+	echo " " >>Resultados/saida.csv
+	rm -f *.txt
+done 
+rm -f *.csv
+cat Resultados/saida.csv
