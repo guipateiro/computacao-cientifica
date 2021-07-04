@@ -1,0 +1,31 @@
+
+tamanho 64,Tempo de execusao,L2 miss ratio,Memory bandwith,DP,AVX,
+multMatPtrVet,8.508828e-06,0.3157,16165.8555,1507.0925,0
+multMatRowVet,7.748151e-06,0.3010,12774.9459,1577.7085,0
+multMatMatPtr,0.0003,0.0617,524.6294,1708.5218,0
+multMatMatRow,0.0003,0.0293,581.8737,1821.8759,0
+ 
+tamanho 100,Tempo de execusao,L2 miss ratio,Memory bandwith,DP,AVX,
+multMatPtrVet,1.707077e-05,0.3430,11347.0257,1376.3238,0
+multMatRowVet,1.648531e-05,0.3277,9265.6564,1450.8853,0
+multMatMatPtr,0.0013,0.0337,292.6957,1504.1232,0
+multMatMatRow,0.0013,0.0438,311.7829,1577.9607,0
+ 
+tamanho 128,Tempo de execusao,L2 miss ratio,Memory bandwith,DP,AVX,
+multMatPtrVet,2.659523e-05,0.3585,8806.9642,1324.7929,0
+multMatRowVet,2.586981e-05,0.3446,9035.1471,1417.2628,0
+multMatMatPtr,0.0028,0.0957,460.9741,1494.2827,0
+multMatMatRow,0.0031,0.0767,16568.6326,1435.4474,0
+ 
+tamanho 2000,Tempo de execusao,L2 miss ratio,Memory bandwith,DP,AVX,
+multMatPtrVet,0.0061,0.3068,10539.7898,1301.3172,0
+multMatRowVet,0.0061,0.3075,10529.8233,1296.9020,0
+multMatMatPtr,42.9635,0.3335,19822.4154,369.2898,0
+multMatMatRow,41.6754,0.3334,18655.7767,378.7269,0
+ 
+tamanho 2048,Tempo de execusao,L2 miss ratio,Memory bandwith,DP,AVX,
+multMatPtrVet,0.0064,0.3029,10603.7221,1300.2672,0
+multMatRowVet,0.0064,0.3031,10487.8739,1300.2674,0
+multMatMatPtr,51.6996,0.3377,18189.3988,325.6521,0
+multMatMatRow,72.3335,0.3007,13906.4328,240.9172,0
+ 
